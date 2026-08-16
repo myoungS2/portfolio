@@ -63,6 +63,15 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+
+        {/* Cloudflare Web Analytics — 쿠키·IP 없이 방문/유입경로만 집계 */}
+        {site.cfAnalyticsToken && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: site.cfAnalyticsToken })}
+          />
+        )}
       </body>
     </html>
   );

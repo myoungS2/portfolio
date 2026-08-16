@@ -30,6 +30,14 @@ export const site = {
   emailUser: "mythe1004",
   emailDomain: "gmail.com",
   github: "https://github.com/myoungS2",
+
+  /**
+   * Cloudflare Web Analytics 토큰.
+   * 대시보드 → Analytics & Logs → Web Analytics → Add a site 에서 발급받아
+   * 여기에 붙여 넣으면 비콘이 붙습니다. 비어 있으면 아무것도 로드하지 않습니다.
+   * 쿠키·IP를 수집하지 않아 동의 배너가 필요 없습니다.
+   */
+  cfAnalyticsToken: "",
 } as const;
 
 /** SKILLS — 기술 스택. 실제로 실무에서 쓴 것만 둡니다. */
