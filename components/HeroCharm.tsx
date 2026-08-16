@@ -2,7 +2,6 @@ import Image from "next/image";
 import clasp from "@/assets/charms/clasp.webp";
 import daisy from "@/assets/charms/daisy.webp";
 import flamingo from "@/assets/charms/flamingo.webp";
-import ring from "@/assets/charms/ring.webp";
 import shield from "@/assets/charms/shield.webp";
 import truck from "@/assets/charms/truck.webp";
 import styles from "./HeroCharm.module.css";
@@ -94,16 +93,6 @@ export default function HeroCharm() {
           />
         </div>
 
-        {/* 링은 z-index 0으로 참들 뒤에 깔립니다 */}
-        <Image
-          className={styles.ring}
-          src={ring}
-          alt=""
-          width={82}
-          height={82}
-          quality={90}
-          priority
-        />
       </div>
     </div>
   );
