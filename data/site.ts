@@ -5,7 +5,7 @@ export const site = {
   wordmark: "MEEYOUNGSIM",
   role: "백엔드 개발자",
   roleEn: "JAVA BACKEND DEVELOPER",
-  url: "https://meeyoungsim.vercel.app",
+  url: "https://myoung.world",
   locationFull: "SEOUL, KOREA",
   year: "2026",
 
