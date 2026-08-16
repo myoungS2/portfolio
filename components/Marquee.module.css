@@ -1,0 +1,50 @@
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 콘텐츠를 2회 복제하고 -50%까지 이동시켜 이음매 없이 반복 */
+.track {
+  display: flex;
+  gap: var(--gap, 48px);
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee var(--duration, 24s) linear infinite;
+  animation-play-state: paused;
+}
+
+.viewport[data-running="true"] .track {
+  animation-play-state: running;
+}
+
+/* 스킬 스트립 */
+.skills {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--fg-muted);
+}
+
+/* 푸터 대형 워드마크 */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(60px, 10vw, 140px);
+  letter-spacing: -0.03em;
+  color: var(--metal-100);
+  line-height: 1;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

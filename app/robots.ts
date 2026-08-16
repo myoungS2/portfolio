@@ -1,0 +1,13 @@
+import type { MetadataRoute } from "next";
+import { site } from "@/data/site";
+
+/* output: "export"에서는 metadata route도 정적으로 굽는다고 명시해야 합니다 */
+export const dynamic = "force-static";
+
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: { userAgent: "*", allow: "/" },
+    sitemap: `${site.url}/sitemap.xml`,
+  };
+}

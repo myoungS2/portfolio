@@ -1,150 +1,373 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
   display: flex;
+  flex-direction: column;
+  /* svh를 써서 모바일 브라우저 툴바가 접힐 때 튀지 않게 합니다 */
+  min-height: calc(100svh - var(--nav-h));
+  padding: 40px var(--pad) 32px;
+  position: relative;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 6.4vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.dot {
+  color: var(--accent);
+}
+
+.stage {
   flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.capLeft,
+.capRight {
+  position: absolute;
+  top: 50%;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+}
+
+.capLeft {
+  left: 0;
+}
+
+.capRight {
+  right: 0;
+}
+
+.charm {
+  position: relative;
+  margin-top: -8px;
+}
+
+.scroll {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
 }
 
-.main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+.arrow {
+  display: inline-block;
+  animation: bounceDown 1.6s ease-in-out infinite;
 }
 
-.intro {
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.aboutHeading {
+  margin: 0 0 32px;
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.mono {
+  font-family: var(--font-display);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.aboutBody p {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--fg-sub);
+  max-width: 640px;
+}
+
+.aboutBody p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+.bordered {
+  border-top: 1px solid var(--line);
+}
+
+.stackList {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  border-top: 1px solid var(--line);
+  margin-bottom: 72px;
+}
+
+.stackRow {
+  display: grid;
+  grid-template-columns: 150px 1fr;
   gap: 24px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.stackLabel {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
+.stackItems {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
+  flex-wrap: wrap;
   gap: 8px;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.stackTag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-sub);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 14px;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.stackTag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.subLabel {
+  margin: 0 0 28px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--fg-muted);
+}
+
+.capGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.capItem {
+  background: var(--bg);
+  padding: 28px 24px;
+  transition: background-color 0.25s ease;
+}
+
+.capItem:hover {
+  background: var(--surface);
+}
+
+.capTitle {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.capBody {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--fg-sub);
+}
+
+/* =========================================================
+   WORKS
+   ========================================================= */
+.worksHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.worksNote {
+  margin: 0;
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+.worksList {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+.work {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* 히어로 키링의 charm을 그대로 올려 이야기와 연결합니다.
+   원안은 프로젝트 스크린샷 자리였으나 사내 시스템이라 공개 이미지가 없습니다. */
+.visual {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.visualCharm {
+  width: auto;
+  /* 박스(4:3)에 비례해 커지므로 어느 폭에서도 여백 비율이 같습니다 */
+  height: 56%;
+  max-width: 72%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(22, 24, 29, 0.14));
+}
+
+.workNo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.ongoing {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+
+.workTitle {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.workTitle a:hover {
+  color: var(--accent);
+}
+
+.workMeta {
+  font-size: 13px;
+  color: var(--fg-muted);
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+}
+
+.workDesc {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--fg-sub);
+}
+
+.workStack {
+  font-size: 13px;
+  color: var(--fg-muted);
+  margin-bottom: 20px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.workLink {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease;
+}
+
+.workLink:hover {
+  gap: 14px;
+}
+
+/* =========================================================
+   반응형
+   ========================================================= */
+@media (max-width: 860px) {
+  .work {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .worksList {
+    gap: 64px;
+  }
+
+  .worksHead {
+    margin-bottom: 40px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stackRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .capLeft,
+  .capRight {
+    position: static;
+    text-align: center;
+  }
+
+  /* 좌우 캡션을 키참 위/아래로 흘려보냅니다 */
+  .stage {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+@media (max-width: 640px) {
+  .worksList {
+    gap: 56px;
   }
 
-  .intro {
-    gap: 16px;
+  .workTitle {
+    font-size: 22px;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  .stackList {
+    margin-bottom: 56px;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
-}
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
 }

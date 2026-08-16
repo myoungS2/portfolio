@@ -1,0 +1,251 @@
+/* =========================================================
+   히어로 키링 — 디자인 핸드오프(design_handoff_portfolio) 최종본.
+   340×490 좌표계이며, 화면이 좁거나 낮으면
+   --scale-w / --scale-h 중 작은 값으로 축소합니다.
+
+   참(daisy·truck·flamingo·shield)과 clasp·ring은 public/charms/의
+   투명 PNG이고, 참을 잇는 고리만 CSS 타원입니다.
+   ========================================================= */
+.wrap {
+  --scale-w: 1;
+  --scale-h: 1;
+  --charm-scale: min(var(--scale-w), var(--scale-h));
+  width: calc(340px * var(--charm-scale));
+  height: calc(490px * var(--charm-scale));
+  flex: none;
+}
+
+.stage {
+  position: relative;
+  width: 340px;
+  height: 490px;
+  transform: scale(var(--charm-scale));
+  transform-origin: top left;
+}
+
+/* globals.css의 img{max-width:100%} 대비 — 치수는 전부 아래에서 명시합니다 */
+.stage img {
+  max-width: none;
+}
+
+/* ---------- 클래스프 ---------- */
+.clasp {
+  position: absolute;
+  left: 171px;
+  top: -4px;
+  transform: translateX(-50%);
+  width: 100px;
+  height: auto;
+  z-index: 1;
+}
+
+/* ---------- 링 ----------
+   정면 원형 PNG를 scaleY로 눕혀 비스듬히 걸린 것처럼 보이게 합니다.
+   z-index 0이라 참들 뒤로 깔립니다. */
+.ring {
+  position: absolute;
+  left: 166px;
+  top: 171px;
+  transform: translateX(-50%) scaleY(0.62) rotate(-4deg);
+  transform-origin: 50% 0;
+  width: 82px;
+  height: auto;
+  z-index: 0;
+}
+
+/* ---------- 스윙 그룹 공통 ----------
+   그룹마다 margin-left가 달라 회전축이 링 위에 퍼집니다.
+   기본 transform(--tilt)은 swing의 0% 값과 같아서, reduced-motion으로
+   애니메이션이 꺼져도 부챗살 배치가 유지됩니다. */
+.group {
+  position: absolute;
+  transform-origin: 50% 0;
+  transform: rotate(var(--tilt));
+}
+
+/* 참을 매다는 고리 — 이미지가 아니라 CSS 타원입니다 */
+.link {
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #b9bfc9;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    1px 1px 2px rgba(22, 24, 29, 0.28);
+}
+
+/* 참은 고리에 살짝 물리도록 음수 margin으로 끌어올립니다 */
+.charm {
+  display: block;
+  margin-inline: auto;
+  height: auto;
+  transform-origin: 50% 8%;
+}
+
+@keyframes swingA {
+  0%,
+  100% {
+    transform: rotate(58deg);
+  }
+  50% {
+    transform: rotate(53deg);
+  }
+}
+@keyframes swingB {
+  0%,
+  100% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes swingC {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+@keyframes swingD {
+  0%,
+  100% {
+    transform: rotate(-46deg);
+  }
+  50% {
+    transform: rotate(-41deg);
+  }
+}
+
+/* ---------- A · 데이지 (비앤비퓨너럴서비스) ---------- */
+.groupA {
+  --tilt: 58deg;
+  left: 160px;
+  top: 200px;
+  width: 112px;
+  margin-left: -84px;
+  z-index: 1;
+  animation: swingA 5s ease-in-out infinite;
+}
+
+.groupA .link {
+  width: 17px;
+  height: 68px;
+}
+
+.groupA .charm {
+  width: 112px;
+  margin-top: -9px;
+  transform: rotate(-56deg);
+}
+
+/* ---------- B · 트럭 (경동택배) ---------- */
+.groupB {
+  --tilt: 12deg;
+  left: 50%;
+  top: 206px;
+  width: 124px;
+  margin-left: -72px;
+  z-index: 3;
+  animation: swingB 6s ease-in-out infinite;
+}
+
+.groupB .link {
+  width: 16px;
+  height: 58px;
+}
+
+.groupB .charm {
+  width: 124px;
+  margin-top: -7px;
+  transform: rotate(-10deg);
+}
+
+/* ---------- C · 플라밍고 (Plan&Go) ---------- */
+.groupC {
+  --tilt: -4deg;
+  left: 50%;
+  top: 206px;
+  width: 88px;
+  margin-left: -34px;
+  z-index: 4;
+  animation: swingC 5.5s ease-in-out infinite;
+}
+
+.groupC .link {
+  width: 15px;
+  height: 88px;
+}
+
+.groupC .charm {
+  width: 88px;
+  margin-top: -9px;
+  transform: rotate(5deg);
+}
+
+/* ---------- D · 방패 (비젠트로) ---------- */
+.groupD {
+  --tilt: -46deg;
+  left: 50%;
+  top: 200px;
+  width: 104px;
+  margin-left: -24px;
+  z-index: 2;
+  animation: swingD 6.5s ease-in-out infinite;
+}
+
+.groupD .link {
+  width: 17px;
+  height: 74px;
+}
+
+.groupD .charm {
+  width: 104px;
+  margin-top: -9px;
+  transform: rotate(44deg);
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 720px) {
+  .wrap {
+    --scale-w: 0.82;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    --scale-w: 0.66;
+  }
+}
+
+/* 노트북처럼 세로가 짧은 화면에서 SCROLL DOWN이 접히지 않도록 */
+@media (max-height: 820px) {
+  .wrap {
+    --scale-h: 0.84;
+  }
+}
+
+@media (max-height: 700px) {
+  .wrap {
+    --scale-h: 0.7;
+  }
+}
+
+/* 넓고 높은 화면에서는 키링을 키워 히어로 타이틀과 무게를 맞춥니다.
+   세로 여유도 함께 봐야 SCROLL DOWN이 밀리지 않습니다. */
+@media (min-width: 1100px) and (min-height: 840px) {
+  .wrap {
+    --scale-w: 1.16;
+    --scale-h: 1.16;
+  }
+}
+
+@media (min-width: 1500px) and (min-height: 920px) {
+  .wrap {
+    --scale-w: 1.32;
+    --scale-h: 1.32;
+  }
+}
