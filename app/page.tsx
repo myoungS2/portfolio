@@ -68,12 +68,9 @@ export default function Home() {
 
       {/* ---------------- 02 WORKS ---------------- */}
       <Reveal as="section" id="works" className={`section ${styles.bordered}`}>
-        <div className={styles.worksHead}>
-          <p className="label">02 — WORKS</p>
-          <p className={styles.worksNote}>
-            키링에 달린 charm 하나가 이야기 하나입니다
-          </p>
-        </div>
+        <p className="label" style={{ marginBottom: 64 }}>
+          02 — WORKS
+        </p>
 
         <div className={styles.worksList}>
           {works.map((w, i) => (

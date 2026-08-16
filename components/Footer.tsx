@@ -1,9 +1,6 @@
 import { site } from "@/data/site";
 import MailLink from "./MailLink";
-import Marquee from "./Marquee";
 import styles from "./Footer.module.css";
-
-const wordmarkItems = [site.wordmark, "●", "BACKEND", "●"];
 
 export default function Footer() {
   return (
@@ -19,24 +16,11 @@ export default function Footer() {
             GITHUB
           </a>
         </div>
-      </div>
 
-      <div className={styles.marquee}>
-        <Marquee
-          items={wordmarkItems}
-          variant="wordmark"
-          accent="●"
-          duration={30}
-          gap={56}
-        />
-      </div>
-
-      <div className={styles.inner}>
         <div className={styles.bottom}>
           <span>
             © {site.year} {site.nameEn}
           </span>
-          <span>{site.locationFull}</span>
         </div>
       </div>
     </footer>

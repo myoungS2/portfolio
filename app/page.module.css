@@ -201,19 +201,6 @@
 /* =========================================================
    WORKS
    ========================================================= */
-.worksHead {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 64px;
-}
-
-.worksNote {
-  margin: 0;
-  font-size: 13px;
-  color: var(--fg-muted);
-}
 
 .worksList {
   display: flex;
@@ -331,12 +318,6 @@
 
   .worksList {
     gap: 64px;
-  }
-
-  .worksHead {
-    margin-bottom: 40px;
-    flex-direction: column;
-    gap: 8px;
   }
 
   .stackRow {
