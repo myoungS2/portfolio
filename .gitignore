@@ -42,3 +42,6 @@ next-env.d.ts
 
 # cloudflare pages
 /out/
+
+# wrangler
+.wrangler/

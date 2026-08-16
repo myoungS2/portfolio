@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "compatibility_date": "2026-08-16",
+
+  /**
+   * 정적 자산만 있는 Worker입니다. next build가 out/을 만들고
+   * Cloudflare는 그걸 그대로 서빙합니다. (main 스크립트 없음)
+   */
+  "assets": {
+    "directory": "./out",
+    // next.config.ts의 trailingSlash: true와 맞춥니다 (/works/vizentro/)
+    "html_handling": "force-trailing-slash",
+    // 없는 경로는 Next가 만든 404 페이지로
+    "not_found_handling": "404-page"
+  }
+}
