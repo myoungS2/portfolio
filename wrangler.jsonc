@@ -9,7 +9,7 @@
    */
   "assets": {
     "directory": "./out",
-    // next.config.ts의 trailingSlash: true와 맞춥니다 (/works/vizentro/)
+    // next.config.ts의 trailingSlash: true와 맞춥니다 (/works/bizentro/)
     "html_handling": "force-trailing-slash",
     // 없는 경로는 Next가 만든 404 페이지로
     "not_found_handling": "404-page"

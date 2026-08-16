@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
 
   /**
    * 정적 호스트가 확장자 없는 경로를 어떻게 해석할지에 기대지 않도록
-   * 각 라우트를 디렉터리 + index.html로 굽습니다. (/works/vizentro/)
+   * 각 라우트를 디렉터리 + index.html로 굽습니다. (/works/bizentro/)
    */
   trailingSlash: true,
 

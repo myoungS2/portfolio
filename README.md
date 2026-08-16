@@ -31,7 +31,7 @@ npx eslint .     # 린트
 
 | charm | work | 슬러그 |
 |---|---|---|
-| 방패 | 비젠트로 | `/works/vizentro` |
+| 방패 | 비젠트로 | `/works/bizentro` |
 | 트럭 | 경동택배 · 합동물류 | `/works/kdexp` |
 | 국화 | 비앤비퓨너럴서비스 | `/works/bnb-funeral` |
 | 플라밍고 | Plan&Go | `/works/plan-and-go` |
